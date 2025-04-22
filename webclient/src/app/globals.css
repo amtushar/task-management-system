@@ -1,0 +1,137 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* 
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+} */
+/* Example of adding more specificity */
+/* styles.css or globals.css */
+/* styles.css or globals.css */
+.venue-modal .ant-modal .ant-modal-body{
+  overflow: hidden; /* Ensure content doesn't spill over the rounded corners */
+}
+.venue-modal .ant-modal-content {
+  transition: all 0.6s ease-in-out !important; /* Apply smooth transition effect */
+  transform: translateY(-50px) !important; /* Modal starts slightly higher for smooth effect */
+  opacity: 0; 
+  border-radius: 2rem !important; 
+  background-color: #ffffff; /* Light mode background */
+  padding: 0 !important; /* Remove padding */
+  border-top-left-radius: 0.5rem; /* Adjust as needed for top left corner */
+  border-top-right-radius: 0.5rem; /* Adjust as needed for top right corner */
+}
+
+.venue-modal.ant-modal-open .ant-modal-content {
+  transform: translateY(0) !important; /* Modal settles into place */
+  opacity: 1 !important; /* Fade-in effect */
+}
+
+.venue-modal .ant-modal-body {
+  padding: 0 !important; /* Remove padding from modal body */
+  border-top-left-radius: 0.5rem; /* Adjust as needed for top left corner */
+  border-top-right-radius: 0.5rem; /* Adjust as needed for top right corner */
+}
+
+.venue-modal .ant-carousel .slick-slide {
+  padding: 0 !important; /* Remove padding from carousel slides */
+}
+
+.venue-modal .ant-carousel img {
+  border-radius: 2rem !important; 
+  margin: 0 !important; /* Remove margin from images */
+  padding: 0 !important; /* Remove padding from images */
+  width: 100%; /* Ensure image takes full width */
+  height: auto; /* Maintain aspect ratio */
+}
+
+.venue-modal .ant-modal-close-x {
+  background-color: #a9a9a9; /* Gray background */
+  border-radius: 50%; /* Make it round */
+  width: 30px; /* Set width */
+  height: 30px; /* Set height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon:hover svg {
+  stroke: #5087ff !important; /* Change 'red' to the color you want */
+}
+
+/* Define your custom styles for the table header */
+.custom-table .ant-table-thead > tr > th {
+  background-color: #9ceb1c; /* Green background */
+  color: white; /* White text color */
+  font-weight: bold; /* Bold header text */
+  text-align: center;
+}
+
+/* Body row styling */
+.custom-table .ant-table-tbody > tr > td {
+  background-color: #f0f0f0; /* Light gray background for content */
+  border-bottom: 1px solid #d9d9d9; /* Bottom border for rows */
+  text-align: center;
+}
+
+
+.centered-column {
+  text-align: center;
+}
+
+.efficiency-low {
+  background-color: red;
+  color: white;
+  border-radius: 4px;
+  padding: 4px 8px;
+  font-weight: bold;
+}
+
+.efficiency-medium {
+  background-color: orange;
+  color: white; /* Use black text for better contrast with yellow */
+  border-radius: 4px;
+  padding: 4px 8px;
+  font-weight: bold;
+}
+
+.efficiency-high {
+  background-color: green;
+  color: white;
+  border-radius: 4px;
+  padding: 4px 8px;
+  font-weight: bold;
+}
+
+.efficiency-cell {
+  width: 50%; /* Reduce width to 50% */
+  margin: 0 auto; /* Center the cell horizontally */
+  text-align: center; /* Ensure text is centered */
+}
+

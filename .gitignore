@@ -1,0 +1,28 @@
+# Node.js dependencies (both frontend and backend)
+node_modules/
+webclient/node_modules/
+restservice/node_modules/
+
+# Build outputs
+dist/
+webclient/.next/
+restservice/dist/
+
+# Environment files
+.env
+.env.local
+webclient/.env
+restservice/.env
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS & Editor junk
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Optional: ignore coverage or testing folders if any
+coverage/

@@ -129,7 +129,7 @@ const Login = () => {
             className="flex w-full justify-center rounded-md bg-[#9ceb1c] px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-[#94eb1c] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#9ceb1c]"
           >
             {loading 
-              ? <Image className='flex justify-center items-center' src={"http://localhost:3000/loader.gif"} alt="my gif" height={25} width={25}  /> 
+              ? <Image className='flex justify-center items-center' src={"https://task-management-system-7crt.vercel.app/loader.gif"} alt="my gif" height={25} width={25}  /> 
               : "Sign in"
               }
           </button>

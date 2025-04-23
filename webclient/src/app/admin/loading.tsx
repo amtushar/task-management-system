@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 
 const Loading = () => {
-  const myGif = "http://localhost:3000/loader.gif";
+  const myGif = "https://task-management-system-7crt.vercel.app/loader.gif";
 
   return (
     <div className='flex items-center justify-center bg-white dark:bg-navy-700 h-[100vh]' >

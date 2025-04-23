@@ -37,5 +37,5 @@ npm run dev
 
 ## 🙌 Author
 
-Tushar Dhingra – [LinkedIn](https://www.linkedin.com/in/tushar-dhingra-03738622a/) • [GitHub](https://github.com/amtushar)
+Tushar Dhingra – [LinkedIn](https://www.linkedin.com/in/tushar-dhingra-03738622a/) • [GitHub](https://github.com/amtushar) - [LiveLink](https://task-management-system-7crt.vercel.app)
 

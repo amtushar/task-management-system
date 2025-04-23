@@ -13,7 +13,7 @@ const Performance = () => {
   const [isApiCalled, setIsApiCalled] = useState<boolean>(false);
 
   const user = useSelector((state: RootState) => state?.user); 
-  const myGif = "http://localhost:3000/loader.gif";
+  const myGif = "https://task-management-system-7crt.vercel.app/loader.gif";
   const TaskApi = new taskApi();
 
   

@@ -75,7 +75,7 @@ const MissedTasks = () => {
                                         className="text-center min-h-[200px] bg-white dark:bg-navy-700"
                                     >
                                         <div className="flex justify-center items-center h-full">
-                                            <Image src={"http://localhost:3000/loader.gif"} alt="loading gif" height={30} width={30} />
+                                            <Image src={"https://task-management-system-7crt.vercel.app/loader.gif"} alt="loading gif" height={30} width={30} />
                                         </div>
                                     </td>
                                 </tr>

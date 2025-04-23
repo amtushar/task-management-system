@@ -45,7 +45,7 @@ function SidebarHorizon(props: { routes: IRoute[];[x: string]: any }) {
 <div className="flex items-center justify-center py-2">
   <div className="flex items-center space-x-2">
       {/* Replace text with image */}
-      {/* <img src="http://localhost:3000/logo.webp" alt="Brand Logo" className="h-30 w-40 object-cover" /> */}
+      {/* <img src="https://task-management-system-7crt.vercel.app/logo.webp" alt="Brand Logo" className="h-30 w-40 object-cover" /> */}
     <p className="text-lg font-semibold uppercase tracking-wide text-white">
       {/* Optionally, you can add the brand name here if needed */}
     </p>

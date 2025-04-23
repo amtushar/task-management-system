@@ -19,13 +19,11 @@ const restService = express();
 const consoleLogger = engine.generateConsoleLogger();
 
 /****** Adding Configurations to rest service object ******/
-restService.options('*', cors());
-
 restService.use(cors({
-    origin: ['https://task-management-system-7crt.vercel.app'],
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    origin: ['http://localhost:3000', 'https://task-management-system-7crt.vercel.app'],
     credentials: true
-  }));
+}));
+
 restService.use(express.json());
 restService.use(cookieParser());
 

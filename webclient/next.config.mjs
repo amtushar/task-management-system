@@ -5,7 +5,7 @@ const nextConfig = {
         appDir: true,
     },
     images: {
-        domains: ['localhost']
+        domains: ['localhost', 'task-management-system-7crt.vercel.app']
     },
     eslint: {
         ignoreDuringBuilds: true,

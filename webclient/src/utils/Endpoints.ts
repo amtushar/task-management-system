@@ -8,7 +8,7 @@ export class Endpoints {
 
 
   // rest-service base url
-  static BASE_URL_RESTSERVICE = "http://localhost:7009"
+  static BASE_URL_RESTSERVICE = "http://ec2-15-206-67-222.ap-south-1.compute.amazonaws.com:7009"
 
   // Endpoint names for user login-logout
   static ENDPOINT_USERS_LOGIN = "/api/rest/tms/1.0.0/userslogin/v1/users/login"

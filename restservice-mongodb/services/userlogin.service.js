@@ -49,8 +49,11 @@ userLoginService.post(endpoints.ENDPOINT_API_VERSION + endpoints.ENDPOINT_USERS_
         // Set the access token in a secure cookie
         res.cookie('accessToken', accessToken, {
             maxAge: 60 * 60 * 24 * 7 * 1000, // 1 week
-            secure: false, // Set to true if using HTTPS
-            sameSite: 'Lax'
+            secure: true,                      //  MUST be true for HTTPS
+            httpOnly: true,                    //  Prevent XSS attacks
+            sameSite: 'None',                  // Required for cross-site
+            domain: '.taskmanagementsystem.in', //  Leading dot for subdomains
+            path: '/',                         // Available site-wide
         }).json(structuredResponse);
 
     } catch (error) {

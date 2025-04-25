@@ -8,7 +8,7 @@ export class Endpoints {
 
 
   // rest-service base url
-  static BASE_URL_RESTSERVICE = "https://15.206.67.222"
+  static BASE_URL_RESTSERVICE = "https://taskmanagementsystem.in"
 
   // Endpoint names for user login-logout
   static ENDPOINT_USERS_LOGIN = "/api/rest/tms/1.0.0/userslogin/v1/users/login"

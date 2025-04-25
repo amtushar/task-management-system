@@ -14,19 +14,20 @@ module.exports = class engine {
 
     static generateDatabaseConnector(databaseUrl) {
         mongoose.set('strictQuery', false);
-        const databaseConnector = mongoose.connect(databaseUrl)
-            .then(() => {
-                console.log('Connected to MongoDB Successfully');
-            })
-            .catch((error) => {
-                console.error('Error connecting to MongoDB:', error);
-            });
-
+    
+        const databaseConnector = mongoose.connect(databaseUrl, {
+            ssl: true
+        })
+        .then(() => {
+            console.log('Connected to MongoDB Successfully');
+        })
+        .catch((error) => {
+            console.error('Error connecting to MongoDB:', error);
+        });
+    
         return databaseConnector;
     }
-
-
-
+    
 
     static generateServiceResponse(output, method, status, originalUrl, message) {
         let serviceResponse = {

@@ -45,6 +45,7 @@ export default function Admin({ children }: { children: React.ReactNode }) {
     if (!token || isTokenExpired(token)) {
       // router.push('/login/data');
       console.log('no push to login')
+      return;
     }
   }, [router]);
 

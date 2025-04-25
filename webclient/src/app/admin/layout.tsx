@@ -38,14 +38,15 @@ export default function Admin({ children }: { children: React.ReactNode }) {
     }
   }, [dispatch, user])
 
-  // useEffect(() => {
-  //   const token = cookies.get('accessToken');
+  useEffect(() => {
+    const token = cookies.get('accessToken');
     
-  //   // If token is not present or expired, redirect to login page
-  //   if (!token || isTokenExpired(token)) {
-  //     router.push('/login/data');
-  //   }
-  // }, [router]);
+    // If token is not present or expired, redirect to login page
+    if (!token || isTokenExpired(token)) {
+      // router.push('/login/data');
+      console.log('no push to login')
+    }
+  }, [router]);
 
   
   return (

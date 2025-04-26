@@ -41,7 +41,9 @@ export const handleSaveClick = async (e: any, userData: any, setFormSubmitted: R
 
 
     setTimeout(() => {
-      message.success('Profile Updated Sucessfully!')
+      message.success('Profile Updated Sucessfully!').then(()=>{
+        setFormSubmitted(false);
+      })
     }, 3000)
 
   } else {

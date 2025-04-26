@@ -23,7 +23,6 @@ const ViewProfile = () => {
       setName(user.name);
       setEmail(user.email);
       setContact(user.contact);
-      setFormSubmitted(false);
     }
 
   }, [user, formSubmitted])

@@ -78,7 +78,8 @@ function SidebarHorizon(props: { routes: IRoute[];[x: string]: any }) {
   {/* Footer Section */}
   <div className="flex justify-center items-center py-6 border-t border-gray-700 mx-4">
     <p className="text-sm text-white">
-      &copy; {new Date().getFullYear()} TMS - All rights reserved.
+    &copy; {new Date().getFullYear()} (TMS) - All rights reserved.  
+    Developed by <a href="https://www.linkedin.com/in/tushar-dhingra-03738622a/" target="_blank" rel="noopener">Tushar Dhingra</a>
     </p>
   </div>
 </div>

@@ -24,11 +24,11 @@ const updateUser = async (request: Users) => {
 
 }
 
-export const handleSaveClick = async (e: any, userData: any, setFormSubmitted: React.Dispatch<React.SetStateAction<boolean>>, phoneInputError: string) => {
+export const handleSaveClick = async (e: any, userData: any, setFormSubmitted: React.Dispatch<React.SetStateAction<boolean>>, phoneInputError: string, formSubmitted: boolean) => {
   // Logic to save changes goes here
   e.preventDefault();
 
-  if(phoneInputError){
+  if(phoneInputError || formSubmitted){
     return [];
   }
   

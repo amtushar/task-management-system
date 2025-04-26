@@ -23,6 +23,7 @@ const ViewProfile = () => {
       setName(user.name);
       setEmail(user.email);
       setContact(user.contact);
+      setFormSubmitted(false);
     }
 
   }, [user, formSubmitted])
@@ -98,7 +99,7 @@ const ViewProfile = () => {
             <button
               type="submit"
               onClick={(e) =>
-                handleSaveClick(e, userData, setFormSubmitted, phoneInputError)
+                handleSaveClick(e, userData, setFormSubmitted, phoneInputError, formSubmitted)
               }
               className="px-8 py-3 text-white bg-teal-600 hover:bg-teal-700 rounded-md font-medium shadow-lg transition-all duration-300"
             >

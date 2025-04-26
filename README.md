@@ -35,6 +35,16 @@ cd webclient
 npm install
 npm run dev
 
+
+## 🌐 Deployment
+
+- **Domain**: Purchased through Hostinger (`taskmanagementsystem.in`)
+- **SSL**: Automated via Let's Encrypt (Certbot)
+- **Frontend**: Hosted on Vercel
+- **Backend**: Deployed on AWS EC2
+- **Database**: MongoDB Atlas
+
+
 ## 🙌 Author
 
 Tushar Dhingra – [LinkedIn](https://www.linkedin.com/in/tushar-dhingra-03738622a/) • [GitHub](https://github.com/amtushar) - [LiveLink](https://task-management-system-7crt.vercel.app)

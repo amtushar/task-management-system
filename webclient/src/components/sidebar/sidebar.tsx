@@ -76,12 +76,22 @@ function SidebarHorizon(props: { routes: IRoute[];[x: string]: any }) {
   <div className="flex-grow"></div>
 
   {/* Footer Section */}
-  <div className="flex justify-center items-center py-6 border-t border-gray-700 mx-4">
-    <p className="text-sm text-white">
-    &copy; {new Date().getFullYear()} (TMS) - All rights reserved.  
-    Developed by <a href="https://www.linkedin.com/in/tushar-dhingra-03738622a/" target="_blank" rel="noopener">Tushar Dhingra</a>
-    </p>
-  </div>
+  <div className="flex flex-col justify-center items-center py-6 border-t border-gray-700 mx-4">
+  <p className="text-sm text-white text-center">
+    &copy; {new Date().getFullYear()} TMS - All rights reserved.
+  </p>
+  <p className="text-sm text-white text-center">
+    Developed by{" "}
+    <a 
+      href="https://www.linkedin.com/in/tushar-dhingra-03738622a/" 
+      target="_blank" 
+      rel="noopener noreferrer"
+      className="text-blue-400 hover:text-blue-300 hover:underline transition-colors duration-200"
+    >
+      Tushar Dhingra
+    </a>
+  </p>
+</div>
 </div>
 
 

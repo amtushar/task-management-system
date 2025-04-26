@@ -22,6 +22,7 @@ module.exports = class endpoints {
     static ENDPOINT_USERCHECK = "/usercheck"  
     static ENDPOINT_USERS_LOGIN = "/users/login"  // for user login
     static ENDPOINT_USERS_LOGOUT = "/users/logout"  // for user login
+    static ENDPOINT_USERS_SESSION_VALIDATE = "/session/validate"  // for checking user login session // especially for vercel app
     static ENDPOINT_ONE_USER = "/user/:id" // reading one object using id
     static ENDPOINT_USERS_CREATETASK = "/userscreatetask"  //reading multiple objects
     static ENDPOINT_USERS_NAME_SEARCH = "/usersnamesearch"  //search for user name

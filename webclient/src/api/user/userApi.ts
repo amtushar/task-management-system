@@ -35,6 +35,11 @@ export default class usersApi {
         return output
     }
 
+    async ValidateUser() {
+        let output: any = await axiosClient.get(Endpoints.BASE_URL_RESTSERVICE + Endpoints.ENDPOINT_USERS_SESSION_VALIDATE)
+        return output
+    }
+
     async CurrentUser(permission: String) {
         let output: any = await axiosClient.get(`${Endpoints.BASE_URL_RESTSERVICE}${Endpoints.ENDPOINT_CURRENT_USER}?permission=${permission}`);
         return output;

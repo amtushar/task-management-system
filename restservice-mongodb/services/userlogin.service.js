@@ -79,4 +79,14 @@ userLoginService.get(endpoints.ENDPOINT_API_VERSION + endpoints.ENDPOINT_USERS_L
 
 })
 
+// An Api for validating cookies for vercel app
+userLoginService.get(endpoints.ENDPOINT_API_VERSION + endpoints.ENDPOINT_USERS_SESSION_VALIDATE, (req, res) => {
+    // HttpOnly cookies are automatically included in the request
+    if (req.cookies.accessToken) {
+      res.status(200).json({ isValid: true });
+    } else {
+      res.status(401).json({ isValid: false });
+    }
+  });
+
 module.exports = userLoginService; 

@@ -29,7 +29,7 @@ function SidebarHorizon(props: { routes: IRoute[];[x: string]: any }) {
   
   return (
 <div
-  className={`fixed top-0 mt-16 left-0 h-full w-64 overflow-y-auto bg-[#000000] text-white shadow-lg transition-transform duration-300 ease-in-out scrollbar-thin scrollbar-thumb-[#9ceb1c] scrollbar-track-black scrollbar-thumb-rounded-lg z-50 ${
+  className={`fixed top-0 mt-20 left-0 h-full w-64 overflow-y-auto bg-[#000000] text-white shadow-lg transition-transform duration-300 ease-in-out scrollbar-thin scrollbar-thumb-[#9ceb1c] scrollbar-track-black scrollbar-thumb-rounded-lg z-50 ${
     open ? 'translate-x-0' : '-translate-x-full'
   } xl:translate-x-0`}
 >

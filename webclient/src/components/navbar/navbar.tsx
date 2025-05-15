@@ -23,7 +23,7 @@ const Navbar = (props: {
   return (
 
     <>
-      <nav className="sticky top-1 left-0 z-40 w-full flex items-center justify-between bg-white shadow-lg rounded-lg  px-3 py-2 md:py-4">
+      <nav className="sticky top-1 left-0 z-50 w-full flex items-center justify-between bg-white shadow-lg rounded-lg  px-3 py-2 md:py-4">
         <div className="flex items-center space-x-2">
           <div className="bg-[#94eb1c] rounded-full h-12 w-16 flex items-center justify-center">
             <span className="text-white text-xl font-bold">TMS</span>

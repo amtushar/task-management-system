@@ -36,7 +36,7 @@ export const getUsers = async (setUsers: React.Dispatch<React.SetStateAction<Mem
 
   const output = await UserAPI.ReadUser({ filter: {}, page: currentPage, permission: "viewUsers" })
   const getUsers = output?.output?.outputResponse;
-  console.log('getusers', getUsers);
+  console.log('getusers', output);
   if (shouldSetPages && output.output.totalCount) {
     const count = Math.ceil(output.output.totalCount / 10);
     const pages = await getPages(count);

@@ -29,6 +29,8 @@ export interface Member {
   email: string;
   taskAssigned: number;
   taskDone: number,
+  missedTasks?: number,
+  efficiency?: number,
   password?: string;
   contact: string;
 

@@ -52,6 +52,7 @@ const Viewusers = () => {
                 <th className="whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white">Contact</th>
                 <th className="whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white">Task Assigned</th>
                 <th className="whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white">Task Done</th>
+                <th className="whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white">Task Missed</th>
                 <th className="whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white">Efficiency</th>
 
               </tr>
@@ -90,6 +91,9 @@ const Viewusers = () => {
                     <td className="whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200">
                       {user.taskDone}
                     </td>
+                    <td className="whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200">
+                      {user.missedTasks}
+                    </td>
                     <td
                       className={`whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200 ${user.taskAssigned > 0
                         ? (user.taskDone / user.taskAssigned) * 100 <= 40
@@ -101,7 +105,7 @@ const Viewusers = () => {
                         }`}
                     >
                       {user.taskAssigned > 0
-                        ? `${(user.taskDone / user.taskAssigned * 100).toFixed(0)}%`
+                        ? `${user.efficiency}%`
                         : 'NA'}
                     </td>
 
@@ -114,7 +118,7 @@ const Viewusers = () => {
               <tbody className='h-64'>
                 <tr>
                   <td colSpan={5} className="text-center py-4 text-gray-500">
-                    No Tasks available
+                    No Members available
                   </td>
                 </tr>
               </tbody>

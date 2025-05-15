@@ -30,6 +30,10 @@ const Login = () => {
     setEmail("teamlead@gmail.com");
     setPassword("TeamLead@01");
   };
+  const fillDemoUserCredentials = () => {
+    setEmail("tushardhingra37@gmail.com");
+    setPassword("TeamLead@01");
+  };
   
 
   useEffect(() => {
@@ -71,8 +75,10 @@ const Login = () => {
       <h4 className="mt-2 text-center text-xl font-bold leading-9 tracking-tight text-gray-900">
         Sign in to your account
       </h4>
-      <button  className="flex justify-center rounded-md bg-[#9ceb1c] px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-[#94eb1c] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#9ceb1c]"
-       onClick={fillDemoCredentials}>Use Admin Demo Crendentials</button>
+      <button  className="w-96 flex justify-center rounded-md bg-[#28a750] px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-[#94eb1c] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#9ceb1c]"
+       onClick={fillDemoCredentials}>Team Lead Demo Crendentials</button>
+      <button  className=" w-96 flex justify-center rounded-md bg-[#67e563] px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-[#94eb1c] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#9ceb1c]"
+       onClick={fillDemoUserCredentials}>Team Member Demo Crendentials</button>
     </div>
   
     <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-sm">

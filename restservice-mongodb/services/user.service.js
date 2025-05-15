@@ -1,5 +1,6 @@
 
 const userModel = require('../schemas/user/user.schema');
+const taskModel = require('../schemas/task/task.schema');
 const engine = require('../utils/engine.util');
 const configs = require('../configs');
 const endpoints = require('../utils/endpoints.util');
@@ -19,13 +20,13 @@ userService.post(endpoints.ENDPOINT_API_VERSION + endpoints.ENDPOINT_USER, async
         dataBaseConnection = await engine.generateDatabaseConnector(configs.DATABASE_URL);
         // console.log("request body in restservice",req.body)
         let filter = {
-            email:  req.body.data.email,
+            email: req.body.data.email,
             contact: req.body.data.contact
         }
 
         const existingUser = await userModel.findOne(filter);
 
-        if(existingUser){
+        if (existingUser) {
             const stucturedResponse = engine.generateServiceResponse(null, req.method, 409, req.originalUrl, "User Already exists");
             return res.json(stucturedResponse);
         }
@@ -56,36 +57,56 @@ userService.post(endpoints.ENDPOINT_API_VERSION + endpoints.ENDPOINT_USER, async
 userService.post(endpoints.ENDPOINT_API_VERSION + endpoints.ENDPOINT_USERS, async (req, res) => {
     try {
         engine.generateDatabaseConnector(configs.DATABASE_URL);
-    
-        
-        const totalCount = await userModel.countDocuments({ userRole: { $nin: "TeamLead" } });
 
         let filter = req.body.filter || {};
+        if (req.body.country) {
+            filter['country'] = req.body.country;
+        }
 
         const page = req.body.page || 1;
-        const limit = 10; // Fixed limit per page, you can make this dynamic if needed
-        // Calculate the number of users to skip based on the current page
+        const limit = req.body.limit || 10;
         const skip = limit * (page - 1);
-        if(req.body.country){
-            filter['country'] = req.body.country
-        }
-     
-        const output = await userModel.find({ ...filter, userRole: { $nin: "TeamLead" } }).select('-_id -createdAt -updatedAt -password -__v')
-        .limit(req.body.limit || limit)
-        .skip(skip)
-        .sort({ createdAt: -1 })
-        const stucturedResponse = engine.generateServiceResponse(output, req.method, 200, req.originalUrl, 'success');
-        // Add totalCount to the structured response
-        stucturedResponse.totalCount = totalCount;
-        res.json(stucturedResponse);
+
+        // Find users excluding TeamLead
+        const users = await userModel.find({ ...filter, userRole: { $nin: ["TeamLead"] } })
+            .select('-_id -createdAt -updatedAt -password -__v')
+            .limit(limit)
+            .skip(skip)
+            .sort({ createdAt: -1 });
+
+         const today = new Date().toISOString().split('T')[0];
+
+        const enrichedUsers = await Promise.all(users.map(async (user) => {
+            const missedTasks = await taskModel.countDocuments({
+                "assignedTo.userID": user.userID,
+                deadline: { $lt: today },
+                status: "Pending"
+            });
+
+            const efficiency = (user.taskDone > 0 || missedTasks > 0)
+                ? ((user.taskDone / (user.taskDone + missedTasks)) * 100).toFixed(0)
+                : "0";
+
+            const userObj = user.toObject();
+            userObj.missedTasks = missedTasks;
+            userObj.efficiency = efficiency;
+
+            return userObj;
+        }));
+
+
+        const totalCount = await userModel.countDocuments({ userRole: { $nin: ["TeamLead"] } });
+
+        const structuredResponse = engine.generateServiceResponse(enrichedUsers, req.method, 200, req.originalUrl, 'success');
+        structuredResponse.totalCount = totalCount;
+
+        res.json(structuredResponse);
 
     } catch (error) {
-        const stucturedResponse = engine.generateServiceResponse(null, req.method, 500, req.originalUrl, error.message);
-        res.json(stucturedResponse);
+        const structuredResponse = engine.generateServiceResponse(null, req.method, 500, req.originalUrl, error.message);
+        res.json(structuredResponse);
     }
-})
-
-
+});
 
 
 //This Api updates multiple users based on filter
@@ -93,12 +114,12 @@ userService.patch(endpoints.ENDPOINT_API_VERSION + endpoints.ENDPOINT_USERS, asy
     try {
         // Connect to the database
         dataBaseConnection = await engine.generateDatabaseConnector(configs.DATABASE_URL);
-         console.log('password', req.body.fields.password);
-         console.log('here', req.body.filter.userID, req.body.fields);
+        console.log('password', req.body.fields.password);
+        console.log('here', req.body.filter.userID, req.body.fields);
         // Check if password is provided and needs to be hashed
 
-      
-           
+
+
         if (req.body.fields && req.body.fields.password) {
             // Hash the new password
             const hashedPassword = await bcrypt.hash(req.body.fields.password, SALT_ROUNDS);
@@ -108,13 +129,13 @@ userService.patch(endpoints.ENDPOINT_API_VERSION + endpoints.ENDPOINT_USERS, asy
         }
 
         // Check for duplicate email or number
-        if ( req.body.fields.email ||  req.body.fields.number) {
+        if (req.body.fields.email || req.body.fields.number) {
             const duplicateQuery = {
                 $or: [
-                    { email:  req.body.fields.email },
-                    { contact:  req.body.fields.contact }
+                    { email: req.body.fields.email },
+                    { contact: req.body.fields.contact }
                 ],
-                userID: { $ne:  req.body.filter.userID } 
+                userID: { $ne: req.body.filter.userID }
             };
 
             console.log('duplicateQuery', duplicateQuery);
@@ -164,15 +185,15 @@ userService.delete(endpoints.ENDPOINT_API_VERSION + endpoints.ENDPOINT_USERS, as
 userService.post(endpoints.ENDPOINT_API_VERSION + endpoints.ENDPOINT_USERS_CREATETASK, async (req, res) => {
     try {
         engine.generateDatabaseConnector(configs.DATABASE_URL);
-    
-        
+
+
         const totalCount = await userModel.countDocuments({ userRole: { $nin: "TeamLead" } });
 
         let filter = req.body.filter || {};
 
-     
+
         const output = await userModel.find({ ...filter, userRole: { $nin: "TeamLead" } }).select('-_id -createdAt -updatedAt -password -__v')
-        .sort({ createdAt: -1 })
+            .sort({ createdAt: -1 })
         const stucturedResponse = engine.generateServiceResponse(output, req.method, 200, req.originalUrl, 'success');
         // Add totalCount to the structured response
         stucturedResponse.totalCount = totalCount;
@@ -201,7 +222,7 @@ userService.get(endpoints.ENDPOINT_API_VERSION + endpoints.ENDPOINT_USERS_NAME_S
         }
 
         const users = await userModel.find(
-            filter, 
+            filter,
             { userID: 1, name: 1, _id: 0 }  // Select only relevant fields
         );
 
@@ -216,7 +237,7 @@ userService.get(endpoints.ENDPOINT_API_VERSION + endpoints.ENDPOINT_USERS_NAME_S
         const structuredResponse = engine.generateServiceResponse(null, req.method, 500, req.originalUrl, error.message);
         res.json(structuredResponse);
     }
-    })
+})
 
 
 

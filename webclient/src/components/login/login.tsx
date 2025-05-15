@@ -61,7 +61,7 @@ const Login = () => {
 
   };
   return (
-    <div className="flex flex-col shadow-lg bg-white bg-opacity-90 py-6 px-4 rounded-md animate_animated animate_fadeIn mt-20 max-w-[860px] mx-auto">
+    <div className="flex flex-col shadow-lg bg-white bg-opacity-90 py-6 px-4 rounded-md animate_animated animate_fadeIn mt-16 max-w-[860px] mx-auto">
     <div className="flex flex-col items-center space-y-4">
       <div className="flex items-center space-x-2">
         <div className="bg-[#94eb1c] rounded-full h-12 w-16 flex items-center justify-center">

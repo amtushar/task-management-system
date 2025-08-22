@@ -52,7 +52,7 @@ export default function Admin({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     const validateUser = async()=>{
       const response = await UserAPI.ValidateUser();
-      if (!response.data.isValid) {
+      if (!response.output.isValid) {
         router.push('/login/data');
       } else {
         console.log('vercel validation failed');

@@ -17,7 +17,7 @@ export class Endpoints {
   // Endpoint names for user group
   static ENDPOINT_USER = "/api/rest/tms/1.0.0/users/v1/user"
   static ENDPOINT_USERS = "/api/rest/tms/1.0.0/users/v1/users"
-  static ENDPOINT_USERS_SESSION_VALIDATE = "/session/validate" // for checking cookies in vercel app
+  static ENDPOINT_USERS_SESSION_VALIDATE = "/api/rest/tms/1.0.0/userslogin/v1/session/validate" // for checking cookies in vercel app
   static ENDPOINT_USERS_CREATETASK = "/api/rest/tms/1.0.0/users/v1/userscreatetask"
   static ENDPOINT_USERS_SEARCH = "/api/rest/tms/1.0.0/users/v1/usersnamesearch"
   static ENDPOINT_READ_ONE_USER = "/api/rest/tms/1.0.0/users/v1/user/:userid"

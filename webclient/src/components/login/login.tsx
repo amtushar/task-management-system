@@ -71,9 +71,6 @@ const Login = () => {
           Task Management System
         </p>
       </div>
-      <p className="text-sm font-semibold text-gray-800">
-          We are on it. It will be working again soon⏳. Thanks for understanding!
-        </p>
   
       <h4 className="mt-2 text-center text-xl font-bold leading-9 tracking-tight text-gray-900">
         Sign in to your account

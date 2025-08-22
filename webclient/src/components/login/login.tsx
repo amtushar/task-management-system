@@ -61,7 +61,7 @@ const Login = () => {
 
   };
   return (
-    <div className="flex flex-col shadow-lg bg-white bg-opacity-90 py-6 px-4 rounded-md animate_animated animate_fadeIn mt-16 max-w-[860px] mx-auto">
+    <div className="flex flex-col shadow-lg bg-white bg-opacity-90 py-5 px-4 rounded-md animate_animated animate_fadeIn mt-16 max-w-[860px] mx-auto">
     <div className="flex flex-col items-center space-y-4">
       <div className="flex items-center space-x-2">
         <div className="bg-[#94eb1c] rounded-full h-12 w-16 flex items-center justify-center">
@@ -70,15 +70,18 @@ const Login = () => {
         <p className="text-xl font-semibold text-gray-800 capitalize">
           Task Management System
         </p>
+        <p className="text-sm font-semibold text-gray-800">
+          We are on it. It will be working again soon⏳. Thanks for understanding!
+        </p>
       </div>
   
       <h4 className="mt-2 text-center text-xl font-bold leading-9 tracking-tight text-gray-900">
         Sign in to your account
       </h4>
       <button  className="w-96 flex justify-center rounded-md bg-[#28a750] px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-[#94eb1c] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#9ceb1c]"
-       onClick={fillDemoCredentials}>Team Lead Demo Crendentials</button>
+       onClick={fillDemoCredentials}>Team Lead Demo Credentials</button>
       <button  className=" w-96 flex justify-center rounded-md bg-[#67e563] px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-[#94eb1c] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#9ceb1c]"
-       onClick={fillDemoUserCredentials}>Team Member Demo Crendentials</button>
+       onClick={fillDemoUserCredentials}>Team Member Demo Credentials</button>
     </div>
   
     <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-sm">

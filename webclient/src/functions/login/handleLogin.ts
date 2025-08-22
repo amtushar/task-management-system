@@ -12,7 +12,6 @@ const handleLogin = async (request: UserData,
             password: request.password
         });
 
-        console.log('response.message', response);
         if (response?.output?.outputResponse) {
             return {
                 success: true,

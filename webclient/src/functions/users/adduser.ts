@@ -6,7 +6,6 @@ import { v4 as uuidv4 } from "uuid";
 export const handleUserSubmit = (e: React.FormEvent<HTMLFormElement>,
   data: User, password: string, confirmPassword: string, phoneInputError: string, { resetForm }: UserSubmitProps, userid: string, username: string) => {
   e.preventDefault();
-  console.log('phoneinput', phoneInputError);
 
 
   if (password !== confirmPassword) {
@@ -55,7 +54,6 @@ const handleSubmit = async (request: User, { resetForm }: UserSubmitProps, useri
 
 
   } catch (error) {
-    console.log('error', error);
     return error;
   }
 

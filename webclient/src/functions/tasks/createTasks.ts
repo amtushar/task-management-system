@@ -41,7 +41,6 @@ export const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>,
       const response = await UserApi.SearchUser(query);
       
       // Assuming response is structured with `venues` in the `data`
-      console.log("response?.output?.data ",response )
       setVenues(response?.output?.data || []); 
     } catch (err) {
       setError('Error searching for venues');

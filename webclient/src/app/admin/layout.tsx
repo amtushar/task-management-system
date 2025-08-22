@@ -26,9 +26,7 @@ export default function Admin({ children }: { children: React.ReactNode }) {
   useEffect(() => {
 
     const getUser = async () => {
-      console.log('inside get user');
       const output = await UserAPI.CurrentUser("currentUser");
-      console.log('inside get user output', output);
       const data = output.output.outputResponse;
       dispatch(currentUser(data));
 
@@ -38,24 +36,12 @@ export default function Admin({ children }: { children: React.ReactNode }) {
     }
   }, [dispatch, user])
 
-  // useEffect(() => {
-  //   const token = cookies.get('accessToken');
-    
-  //   // If token is not present or expired, redirect to login page
-  //   if (!token || isTokenExpired(token)) {
-  //     // router.push('/login/data');
-  //     console.log('no push to login')
-  //     return;
-  //   }
-  // }, [router]);
-
+ 
   useEffect(() => {
     const validateUser = async()=>{
       const response = await UserAPI.ValidateUser();
       if (!response.output.isValid) {
         router.push('/login/data');
-      } else {
-        console.log('vercel validation failed');
       }
     }
     validateUser();

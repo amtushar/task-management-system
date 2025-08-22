@@ -20,7 +20,6 @@ const Performance = () => {
   useEffect(() => {
     const fetchEfficiency = async () => {
       if (user?.userID && !isApiCalled) {
-        console.log("Fetching efficiency for user:", user);
 
         const filter = {
           userID: user.userID,
@@ -30,7 +29,6 @@ const Performance = () => {
 
         try {
           const output = await TaskApi.FindEfficiency(filter);
-          console.log("API Output:", output);
           setTargetEfficiency(output.output.outputResponse.efficiency || 0);
           setIsApiCalled(true); 
         } catch (error) {

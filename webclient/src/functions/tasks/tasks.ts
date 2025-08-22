@@ -4,7 +4,6 @@ import taskApi from "@/api/task/taskApi";
 const getPages = async (count: number) => {
   let arr = [];
   for (let i = 1; i <= count; i++) {
-    console.log('arr', arr);
     arr.push(i);
   }
   return arr;
